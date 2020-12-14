@@ -1,4 +1,4 @@
-// export myName=production  linux, unix, macos  echo $myName
+// export myName=production  linux, unix, macos  echo $myName 
 // set myName=production     windows             echo %myName%
 // $env:myName="production"  powerShell          echo %myName%
 
