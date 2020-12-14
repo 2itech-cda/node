@@ -1,0 +1,23 @@
+{
+  "name": "@2itek/webapp",
+  "version": "0.0.0",
+  "description": "Web Application",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Web",
+    "App"
+  ],
+  "author": "Vincent Letourneau",
+  "license": "MIT ",
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
