@@ -4,8 +4,12 @@
 // getFlag('age')   100
 // getFlag('ville') lyon
 function getFlag(flagName) {
-    return '';
+    const pos = process.argv.indexOf('-' + flagName);
+    return pos === -1 ? null : process.argv[pos+1];
 }
 
-console.log(getFlag('name')); // toto
-// console.log(process.argv);
+let firstName = getFlag('name');
+let age = getFlag('age');
+let ville = getFlag('ville');
+
+console.log(firstName, age, ville);
