@@ -1,0 +1,10 @@
+<%- include('header') %>
+    <h1>Bonjour <%= name %></h1>
+    <p><%= name %> vie à <%= ville %></p>
+
+    <ul>
+        <% for (let hobby of hobbies) { %>
+            <li><%= hobby %></li>
+        <% } %>
+    </ul>
+<%- include('footer') %>

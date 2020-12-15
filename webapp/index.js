@@ -2,30 +2,27 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
+const apiKey = require('./lib/apikey');
+const monModule = require('./lib/mon-module');
+
 const app = express();
-
 app.use(morgan('dev'));
-
-// http://localhost:3000/contact?key=abcd
-
-// wrapping, closure
-function apiKey(key) {
-    return (req, res, next) => {
-        if (!req.query.key || req.query.key !== key) {
-            res.status(401).send('<h1>Unauthorized</h1>');
-            return;
-        }
-        next();
-    }
-}
-
-app.use(apiKey('abcd'));
-
 app.use(express.static(path.join(__dirname, 'views')));
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'tmpl'));
+
 // name=toto&email=toto@gmail.com&password=0000
 // req.body.name, req.body.email, req.body.password
+
+app.get('/hello', (req, res) => {
+    res.render('hello', {
+        name: 'Julia',
+        ville: 'Marseille',
+        hobbies: ['Vélo', 'lire', 'Surf'],
+    });
+});
 
 app.get('/', (_req, res) => {
     res.send('<h1>Express Application</h1>');
@@ -44,7 +41,7 @@ app.post('/users', (req, res) => {
     res.json(req.body);
 });
 
-app.get('/about', (_req, res) => {
+app.get('/about', apiKey('abcd'), (_req, res) => {
     res.json({"title": "about"});
 });
 
