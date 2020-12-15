@@ -1,13 +1,22 @@
 $color: #333;
 $font: sans-serif;
 
+::placeholder {
+    color: blue;
+}
+
 body {
     font-family: $font;
 }
 
 a {
     color: $color;
+    text-decoration: none;
+    box-shadow: 0 0 0 #333;
+
     &:hover {
         color: darken($color, 5);
     }
 }
+
+@import '_box';

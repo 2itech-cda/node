@@ -1,0 +1,29 @@
+::-moz-placeholder {
+  color: blue;
+}
+
+:-ms-input-placeholder {
+  color: blue;
+}
+
+::placeholder {
+  color: blue;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+  box-shadow: 0 0 0 #333;
+}
+
+a:hover {
+  color: #262626;
+}
+
+.box {
+  width: 100%;
+}
