@@ -1,9 +1,11 @@
 const express = require('express');
 const morgan = require('morgan');
+const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
 
 app.use(morgan('dev'));
+app.use(express.static(path.join(__dirname, 'views')));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // name=toto&email=toto@gmail.com&password=0000
@@ -28,6 +30,10 @@ app.post('/users', (req, res) => {
 
 app.get('/about', (_req, res) => {
     res.json({"title": "about"});
+});
+
+app.get('/contact', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'contact.html'));
 });
 
 app.listen(3000, () => console.log('Server is running...'));
