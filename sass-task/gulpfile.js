@@ -20,6 +20,14 @@ function css() {
             .pipe(gulp.dest('./dist/css'));        // sauvegarde du css autopréfixé et compressé
 }
 
+function js() {
+    // gulp-concat
+    // gulp-uglify
+
+    return gulp.src('./src/**/*.js')
+            .pipe(gulp.dest('./dist/js'));
+}
+
 function watcher() {
     gulp.watch('./scss/**/*.scss', css);
 }
