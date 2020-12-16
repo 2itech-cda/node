@@ -29,7 +29,9 @@ routes.forEach((route: Route): void => {
         if (result instanceof Promise) {
             result.then(
                 data => data !== null && data !== undefined ? res.send(data) : undefined,
-                err => console.log(err)
+                err => {
+                    res.status(500).json({ message: 'Internal Server Error' });
+                }
             );
         } else if (result !== null && result !== undefined) {
             res.json(result);
