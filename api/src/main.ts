@@ -5,7 +5,6 @@ import * as bodyParser from 'body-parser';
 import { Request, Response, NextFunction, Application } from 'express';
 import { DomainError, NotFoundError } from './errors';
 import { Route, routes } from './routes';
-import { IndexController } from './controllers/IndexController';
 
 // Variables d'environnements.
 const HOST = process.env.HOST || 'localhost';
