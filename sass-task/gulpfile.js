@@ -10,8 +10,8 @@ const rename = require('gulp-rename');
  * outputStyle: Expanded, compressed
  */
 function css() {
-    return gulp.src('./scss/**/*.scss')            // Source des fichiers à traiter
-            .pipe(plumber())                       // Previent les erreurs
+    return gulp.src('./scss/**/*.scss')            // source des fichiers à traiter
+            .pipe(plumber())                       // previent les erreurs
             .pipe(sass({outputStyle: 'expanded'})) // .on('error', sass.logError))
             .pipe(postcss([autoprefixer]))         // ::-moz-placeholder
             .pipe(gulp.dest('./dist/css'))         // sauvegarde du css normal
