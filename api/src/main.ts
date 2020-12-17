@@ -1,9 +1,10 @@
 // Les modules
+import 'reflect-metadata';
 import * as express from 'express';
 import { createConnection } from 'typeorm';
 import * as bodyParser from 'body-parser';
 import { Request, Response, NextFunction, Application } from 'express';
-import { DomainError, NotFoundError } from './errors';
+import { DomainError } from './errors';
 import { Route, routes } from './routes';
 
 // Variables d'environnements.
@@ -47,10 +48,6 @@ routes.forEach((route: Route): void => {
         }
     });
 
-    // app['get']('/', (req: Request, res: Response) => {
-    //     const controller = new IndexController;
-    //     const result = controller.index(req, res);
-    // });
 });
 
 app.use((err: Error | DomainError, req: Request, res: Response, next: NextFunction) => {

@@ -1,6 +1,4 @@
 import { Request, Response } from 'express';
-import { Db } from 'typeorm';
-import { InternalServerError } from '../errors';
 
 export class IndexController {
 
