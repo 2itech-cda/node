@@ -58,11 +58,11 @@ app.use((err: Error | DomainError, req: Request, res: Response, next: NextFuncti
 });
 
 // Ecoute du serveur.
-app.listen(PORT, HOST, () => {
+module.exports = app.listen(PORT, HOST, async () => {
     console.log(`[express] server has started on localhost:3000`);
 
     try {
-        createConnection();
+        await createConnection();
     } catch (error) {
         console.log('[typeorm] connection error:', error);
     }

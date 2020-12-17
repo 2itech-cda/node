@@ -5,8 +5,7 @@ import { InternalServerError } from '../errors';
 export class IndexController {
 
     async index(req: Request, res: Response): Promise<any> {
-        throw new InternalServerError()
-        //return { message: 'hello, World' };
+        return { message: 'Hello, World' };
     }
 
 }
