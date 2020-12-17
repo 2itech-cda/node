@@ -1,4 +1,5 @@
 import { IndexController } from './controllers/IndexController';
+import { UserController } from './controllers/UserController';
 
 export interface Route {
     method: string;                       // get, post, put, delete === methods HTTP
@@ -15,4 +16,22 @@ export const routes: Route[] = [
         controller: IndexController,
         action: 'index'
     },
+    {
+        method: 'get',
+        path: '/users',
+        controller: UserController,
+        action: 'getUsers'
+    },
+    {
+        method: 'get',
+        path: '/users/email/:email',
+        controller: UserController,
+        action: 'getByEmail'
+    },
+    {
+        method: 'post',
+        path: '/register',
+        controller: UserController,
+        action: 'register'
+    }
 ];

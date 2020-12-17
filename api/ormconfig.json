@@ -6,7 +6,7 @@
     "password": "root",
     "database": "api2itek",
     "synchronize": true,
-    "logging": true,
+    "logging": false,
     "entities": [
         "src/entities/**/*.ts",
         "dist/entities/**/*.js"
