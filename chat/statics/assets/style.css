@@ -26,6 +26,7 @@ body {
 
 #messages {
     flex-grow: 1;
+    padding: 10px;
 }
 
 #form {
@@ -41,4 +42,22 @@ body {
     border: 1px solid #a7a7a7;
     padding-left: 10px;
     outline: none;
+}
+
+.message-sender {
+    background-color: #4189e1;
+    color: white;
+    max-width: 200px;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.message-others {
+    background-color: #43a943;
+    color: white;
+    max-width: 200px;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px;
 }

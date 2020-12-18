@@ -15,10 +15,17 @@ app.use(morgan('dev'));
 
 io.on('connection', socket => {
     console.log('Connection', socket.id);
+    socket.join('users');
 
     socket.on('hello', (message) => {
         console.log(message);
-    }) 
+    })
+
+    socket.on('sendMessage', msg => {
+        console.log(msg);
+
+        socket.to('users').emit('message', msg);
+    });
 
     socket.emit('welcome', 'Bonjour, tu es le bienvenu');
 })

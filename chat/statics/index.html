@@ -19,12 +19,28 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
         const socket = io();
+        const messages = document.body.querySelector('#messages');
+        const form = document.body.querySelector('#form');
+        const inputMsg = document.body.querySelector('#inputMessage');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+
+            messages.innerHTML += `<div class="message-sender">${inputMsg.value}</div>`;
+
+            socket.emit('sendMessage', inputMsg.value);
+            inputMsg.value = '';
+        })
 
         socket.emit('hello', 'Bonjour server');
 
         socket.on('welcome', (msg) => {
             console.log(msg);
         });
+
+        socket.on('message', message => {
+            messages.innerHTML += '<div class="message-others">' + message + '</div>';
+        })
     </script>
 
 </body>
