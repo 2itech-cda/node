@@ -12,7 +12,7 @@
     <div class="container">
         <div id="messages"></div>
         <form id="form">
-            <input id="inputMessage" placeholder="Tapez votre message..." type="text">
+            <input autofocus autocomplete="off" id="inputMessage" placeholder="Tapez votre message..." type="text">
         </form>
     </div>
 
@@ -27,6 +27,7 @@
             e.preventDefault();
 
             messages.innerHTML += `<div class="message-sender">${inputMsg.value}</div>`;
+            scrollMessages();
 
             socket.emit('sendMessage', inputMsg.value);
             inputMsg.value = '';
@@ -40,7 +41,12 @@
 
         socket.on('message', message => {
             messages.innerHTML += '<div class="message-others">' + message + '</div>';
+            scrollMessages();
         })
+
+        function scrollMessages() {
+            messages.scrollTo({top: messages.scrollHeight, behavior: 'smooth'});
+        }
     </script>
 
 </body>
