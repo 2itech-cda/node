@@ -5,15 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat</title>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
+    <div class="container">
+        <div id="messages"></div>
+        <form id="form">
+            <input id="inputMessage" placeholder="Tapez votre message..." type="text">
+        </form>
+    </div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script>
         const socket = io();
 
-        
+        socket.emit('hello', 'Bonjour server');
+
+        socket.on('welcome', (msg) => {
+            console.log(msg);
+        });
     </script>
 
 </body>

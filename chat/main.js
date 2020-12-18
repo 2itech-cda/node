@@ -10,11 +10,17 @@ const io = socketio(server);
 const PORT = Number(process.env.PORT) || 3000;
 const HOST = process.env.HOST || 'localhost';
 
-app.use(express.static('static'));
+app.use(express.static('statics'));
 app.use(morgan('dev'));
 
 io.on('connection', socket => {
+    console.log('Connection', socket.id);
 
+    socket.on('hello', (message) => {
+        console.log(message);
+    }) 
+
+    socket.emit('welcome', 'Bonjour, tu es le bienvenu');
 })
 
 server.listen(PORT, HOST, () =>  console.log('Server is running...'));
